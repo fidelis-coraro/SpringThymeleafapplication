@@ -46,9 +46,12 @@ public class ProductController {
     model.addAttribute("products", products);
     return "productList";
 }
-    @GetMapping("/Products")
-    public List<Product> getAllProducts() {
-        return productService.getAllProducts();
+    @GetMapping("/products")
+    public String getAllProducts(Model model) {
+        List<Product> products = productService.getAllProducts();
+        model.addAttribute("products", products);
+        return "products"; // This will return products.html Thymeleaf template
     }
+
 }
 
